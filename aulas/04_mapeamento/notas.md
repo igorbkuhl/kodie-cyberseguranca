@@ -1,0 +1,49 @@
+# Reconhecimento
+- passivo
+  - não possui conhecimento com o alvo (black box)
+  - não gera log no alvo
+  - fontes: WHOIS, DNS, Shodan, redes sociais
+  - ex: consultar quem registrou um domínio
+- ativo
+  - possui contato direto com o alvo
+  - pode ser detectado e logado
+  - ferramentas: nmap, ping, traceroute
+  - ex: varredura de portas
+
+# O que está disponível publicamente?
+## WHOIS
+- dono do domínio
+- registradora e contatos
+- datas de de registro e expiração
+
+## Shodan
+- dispositivos e serviços expostos na invernet
+- câmeras, servidores, roteadores
+
+## DNS Lookup
+- registros A (IP)
+- MX (e-mail)
+- TXT (SPF/DKIM)
+- NS (nameservers)
+
+## Redes Sociais / OSINT
+(OSINT é uma técnica para conseguir pequenas informações)
+- funcionários
+- tecnologias usadas
+- estrutura da empresa
+- eventos e projetos públicos
+
+# Mitre ATT&CK - Tática TA0043
+## Reconnaissance - o que o adversário buscan antes de agir
+- T1590
+  - Gather Victim Network Information
+  - Coleta de IPs, ASN, blocos de rede
+- T1591
+  - Gather Victim Org Information
+  - Estrutura da empresa, funcionarios, parceiros.
+- T1596
+  - Search Open Technical Databases
+  - Shodan, WHOIS, Certificate Transparency
+- T1598
+  - Phishing for Information
+  - Coleta de credenciais via e-mail falso com o uso de dados do WHOIS.
