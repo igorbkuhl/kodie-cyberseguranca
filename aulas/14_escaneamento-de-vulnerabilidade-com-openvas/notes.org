@@ -1,0 +1,51 @@
+* OpenVAS
+
+** Diferenciação com nmap
+
+- nmap: identifica portas abertas, serviços e sistemas operacionais.
+- OpenVAS: identifica vulnerabilidades específicas com CVE e CVSS.
+
+
+** Cenários de uso
+
+Para pentest black ou gray box, use OpenVas.
+Para pentest white box, use Wazuh.
+
+
+** Fluxo
+
+Caso não seja autenticado, terá uma visão externa do alvo, irá simular um atacante sem acesso e validará cada exposição pública.
+Caso seja autenticado, terá uma visão interna com credenciais do alvo, detectará falhas em configurações e validará acessos e permissões.
+
+
+*** Passos
+
+1. Feed NVT: mais de 50.000 testes autalizados diaramente;
+2. Scan target: probes específicos ao alvo;
+3. Comparação: respostas cruzadas com assinaturas de vulnerabilidades;
+4. Relatório CVSS: severidade, CVE e soluções.
+
+
+** Priorização de vulnerabilidades com a escala CVSS
+
+| Faixa      | Severidade  | Ação recomendada            |
+| ---------- | ----------- | --------------------------- |
+| 9.0 - 10.0 | CRÍTICO     | Patch imediato              |
+| 7.0 - 8.9  | ALTO        | Correção nesta semana       |
+| 4.0 - 6.9  | MÉDIO       | Planejar para próximo ciclo |
+| 0.1 - 3.9  | BAIXO       | Monitorar                   |
+| 0.0        | INFORMATIVO | Registrar, sem ação urgente |
+
+Regra prática: comece pelos riscos mais altos. Reduza exposições primeiro, depois otimize o restante.
+
+
+*** Exemplo de relatório OpenVAS
+
+| Severidade   | CRÍTICO CVSS 9.8                                             |
+| Título       | Apache httpd mod SSL Multiple Vulnerabilities Versão 2.2.21  |
+| CVE          | CVE-2011-2523                                                |
+| Host e Porta | 192.168.1.24:443                                             |
+| Resumo       | Falhas no mod SSL podem permitir a execução remota do código |
+|              | ou causar negação de serviço.                                |
+| Solução      | Atualize o Apache httpd para a versão corrigida e aplique    |
+|              | as configurações recomendadas.                               |

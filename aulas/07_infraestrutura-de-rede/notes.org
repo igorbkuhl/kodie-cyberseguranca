@@ -1,0 +1,27 @@
+* Infraestrutura de Rede
+
+** Componentes de Rede
+*** Switch
+Conecta dispositivos na mesma rede local.
+
+*** Roteador
+Conecta redes diferentes. É a conexão entre a rede local e a rede global.
+
+*** Firewall
+Controla o tráfego, permitindo ou bloqueando conexões por regras.
+
+*** Servidor
+Serve cites, arquivos, e-mails e bancos de dados.
+
+*** Cliente
+Dispositivo que consome os recursos.
+
+** Endereçamento de IP
+*** IP Privado
+Usado na rede local.
+Faixas: 192.168.x.x / 10.x.x.x / 172.16-31.x.x
+Exemplo: 192.168.1.5
+
+*** IP Público
+Atribuído pelo provedor e visível mundialmente.
+Exemplo: 189.112.4.18

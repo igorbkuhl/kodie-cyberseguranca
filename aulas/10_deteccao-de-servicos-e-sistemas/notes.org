@@ -1,0 +1,13 @@
+Nmap com informações de cada porta
+```sh
+nmap -sV target
+```
+
+Como o nmap encontra o sistema operacional
+- TTL: 64 (Linux), 128 (Windows)
+- Janela do TCP
+
+Combo completo:
+```sh
+sudo nmap -sV -sc -O target
+```

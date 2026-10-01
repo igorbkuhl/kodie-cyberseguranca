@@ -1,4 +1,4 @@
-# Reconhecimento
+* Reconhecimento
 - passivo
   - não possui conhecimento com o alvo (black box)
   - não gera log no alvo
@@ -10,31 +10,31 @@
   - ferramentas: nmap, ping, traceroute
   - ex: varredura de portas
 
-# O que está disponível publicamente?
-## WHOIS
+* O que está disponível publicamente?
+** WHOIS
 - dono do domínio
 - registradora e contatos
 - datas de de registro e expiração
 
-## Shodan
+** Shodan
 - dispositivos e serviços expostos na invernet
 - câmeras, servidores, roteadores
 
-## DNS Lookup
+** DNS Lookup
 - registros A (IP)
 - MX (e-mail)
 - TXT (SPF/DKIM)
 - NS (nameservers)
 
-## Redes Sociais / OSINT
+** Redes Sociais / OSINT
 (OSINT é uma técnica para conseguir pequenas informações)
 - funcionários
 - tecnologias usadas
 - estrutura da empresa
 - eventos e projetos públicos
 
-# Mitre ATT&CK - Tática TA0043
-## Reconnaissance - o que o adversário buscan antes de agir
+* Mitre ATT&CK - Tática TA0043
+** Reconnaissance - o que o adversário buscan antes de agir
 - T1590
   - Gather Victim Network Information
   - Coleta de IPs, ASN, blocos de rede

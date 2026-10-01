@@ -1,0 +1,59 @@
+* nmap
+
+** Flags CLI
+*** -S
+Conexão TCP, realiza o three-way handshake.
+É mais detectável, gera log no alvo, não precisa de root e é mais lento.
+
+*** -sS
+Scan SYN, envia um SYN, recebe SYN-ACK e responde com RST.
+Não completa o handshake, difícil de logar, precisa de root (por lidar com um socket) e é o padrão do nmap quando usado como root.
+
+*** -sU
+Scan UDP, não confirma a entrega, sendo muito lento e sem handshake.
+Necessita uso com root e utiliza as seguintes portas: 53 (DNS) e 161 (SNMP).
+
+
+** Timing - velocidade vs detecção
+| flag | nome            | velocidade   | risco de detecção |
+|------|-----------------|--------------|-------------------|
+| -T0  | Paranóico       | Horas/dias   | Mínimo            |
+| -T1  | Furtivo         | Muito lento  | Muito baixo       |
+| -T2  | Educado         | Lento        | Baixo             |
+| -T3  | Normal (padrão) | Médio        | Médio             |
+| -T4  | Agressivo       | Rápido       | Alto              |
+| -T5  | Insano          | Muito rápido | Máximo            |
+
+Nota: em pentests gerais, o timing deve ser negociado.
+
+
+** Limite de Portas
+Por padrão, o nmap confere apenas 100 portas.
+Para vascular TODAS as 65535 portas, utiliza-se a flag `-p-`.
+
+** Scripts
+Scripts NSE para SMB:
+
+```sh
+nmap -p445 --script smb-os-discovery <alvo>
+```
+Revela informações do computador alvo através do protocolo TCP (portas 445 ou 139).
+- Sistema Operacional
+- Nome do computador
+- Nome do domínio
+- Forest name
+- FQDN (Fully Qualified Domain Name)
+- Nome do computador NetBIOS
+- Nome do domínio NetBIOS
+- Workgroup
+- Tempo do sistema
+
+```sh
+nmap -445 --script smb-enum-shares <alvo>
+```
+Lista compartilhamentos disponíveis, incluindo arquivos privados.
+
+```sh
+nmap -p445 --script smb-vuln-ms17-010 <alvo>
+```
+Testa CVE-2017-0144, utilizado pelo Eternal Blue e WannaCry para execução remota.
