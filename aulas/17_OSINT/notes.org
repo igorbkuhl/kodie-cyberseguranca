@@ -1,0 +1,27 @@
+* OSINT - Open Source Intelligence
+Informações obtidas através de fontes públicas, como redes sociais, WHOIS e Shodan.
+
+** Filtros de pesquisa
+Também conhecidos como "dork", filtram os resultados de motores de busca.
+| filtro    | exemplo                 | descricao                      |
+|-----------+-------------------------+--------------------------------|
+| site:     | site:dominio.com.br     | limita a um domínio            |
+| filename: | filename:resultado.xlsx | formato do arquivo             |
+| inurl:    | inurl:admin             | termo dentro da url            |
+| intitle:  | intitle:login           | termo dentro do título         |
+| ext:      | ext:pdf                 | filtra por extenção de arquivo |
+
+** Coleta automatizada e ativos expostos
+*** theHarvester
+Coleta e-mails, subdomínios, hosts e IPs.
+Exemplo de comando:
+#+begin_src shell
+theHarvester -d alvo.com -b all
+#+end_src
+
+*** Shodan
+Encontra todas as máquinas expostas na internet com suas portas abertas.
+Exemplo de filtro:
+#+begin_src text
+vuln:CVE-2017-0144 country:BR product:Apache port:443
+#+end_src

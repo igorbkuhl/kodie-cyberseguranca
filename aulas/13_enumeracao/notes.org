@@ -4,20 +4,20 @@
 - LDAP
 
 * Comandos
-```sh
-* informações do SNMP
+#+begin_src sh
+# informações do SNMP
 nmap -sU -sV --script snmp-info <alvo>
 
-* usuários de uma máquina Windows
+# usuários de uma máquina Windows
 enum4linux -o <alvo>
 
-* Active Directory
+# Active Directory
 snmpwalk -v2c -c public <alvo>
 
-* informações dos usuários
+# informações dos usuários
 nmap -p389 --script ldap-search <alvo>
 ldapsearch -x -H ldap://<alvo> -b 'dc=kodie,dc=lab'
 
-* executar scan em todos os dispositivos da rede
+# executar scan em todos os dispositivos da rede
 nmap x.y.0.0/24
-```
+#+end_src
